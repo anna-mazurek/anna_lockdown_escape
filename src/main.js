@@ -18,7 +18,7 @@ function buildDom(htmlString) {
 function createSplashScreen() {
   splashScreen = buildDom(`
     <main>
-    <div class="main">
+    <div class="splash">
       <div class="sign">
         <span class="sign__word">Anna's Lockdown Escape</span>
       </div>
@@ -66,7 +66,7 @@ function removeSplashScreen() {
 
 function createGameScreen() {
   gameScreen = buildDom(`
-    <main class="game container">
+  <main class="game container">
       <header>
         <div class="score">
           <span class="label">Score:</span>
@@ -76,7 +76,7 @@ function createGameScreen() {
       <div class="canvas-container">
         <canvas></canvas>
       </div>
-    </main>
+      </main>
 	`);
 
   document.body.appendChild(gameScreen);

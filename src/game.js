@@ -17,16 +17,15 @@ class Game {
     this.canvas = this.gameScreen.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
 
+    //Set canvas width and height
+
+    this.canvas.setAttribute("width", 1200);
+    this.canvas.setAttribute("height", 700);
+
     // Save reference to the score
     this.scoreElement = this.gameScreen.querySelector(".score .value");
 
-    // Set the canvas dimesions to match the parent
-    // this.canvas.width = this.canvasContainer.offsetWidth;
-    // this.canvas.height = this.canvasContainer.offsetHeight;
-    this.containerWidth = this.canvasContainer.offsetWidth;
-    this.containerHeight = this.canvasContainer.offsetHeight;
-    this.canvas.setAttribute("width", this.containerWidth);
-    this.canvas.setAttribute("height", this.containerHeight);
+    //initate the player
 
     this.player = new Player(this.canvas, 30);
 
