@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 728px; /* Resizes the container to 728px for large screens */
+    margin: 0 auto;
+  }
+}
+
+.main {
+  margin: 0 auto;
+
+  width: 70%;
+  height: 750px;
+  font-family: "Josefin Slab", serif;
+  font-size: 16px;
+  background-color: rgb(181, 216, 236);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 23px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.emoji {
+  width: 20px;
+  height: auto;
+}
+
+.anna-hand {
+  height: 100px;
+  width: auto;
+  padding-top: 10px;
+}
+
+/* .instructions {
+  margin-top: 2%;
+  padding: 1%;
+  height: 20%;
+  width: auto;
+  background-color:rgba(93, 104, 116, 0.88);
+} */
+
+.sign {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Sacramento;
+  font-size: 70px;
+  text-align: center;
+  line-height: 1;
+  color: #c6e2ff;
+  animation: neon 0.08s ease-in-out infinite alternate;
+}
+
+/*-- neon animation --*/
+
+@keyframes neon {
+  from {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.92),
+      0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52),
+      0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78),
+      0 0 54px rgba(30, 132, 242, 0.92);
+  }
+  to {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98),
+      0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(9, 69, 134, 0.58),
+      0 0 22px rgba(11, 91, 177, 0.84), 0 0 38px rgba(30, 132, 242, 0.88),
+      0 0 60px rgba(30, 132, 242, 1);
+  }
+}
+
+.box {
+  position: relative;
+  background-color: white;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 15px;
+  font-family: "Josefin Slab", serif;
+}
+
+.start-button {
+  margin-top: 3%;
+  color: #fc09f0;
+  font-family: "Press Start 2P", cursive;
+  border-style: solid;
+  border-color: aqua;
+}
+
+.canvas-container {
+  height: 900px;
+  width: auto;
+}
+
+.canvas-container canvas {
+  background-image: url("../img/background.jpg");
+  background-repeat: no-repeat;
+}

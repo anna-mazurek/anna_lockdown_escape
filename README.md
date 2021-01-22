@@ -1,48 +1,112 @@
-<h1><b>Canvas Game - Anna's Lockdown Escape</b></h1>
+<h2>Description</h2>
 
-<h2>Steps</h2>
+Goal of 'Anna's Lockdown Escape' is to gain 1000 points through collecting the items falling from the ceiling. 
 
-<ul>
-<li>Create Files & Initial Setup</li>
-<li>Create the start screen and start game button</li>
-<li>Create Game constructor, Player constructor, Treasures constructor and get elements needed for the game start</li>
-<li>Add Player movement functionality and Instantiate the player object</li>
-<li>Create the game loop using requestAnimationFrame() (updating positions, collisions, drawing players and treasures)</li>
-<li>Implement the collision checking function</li>
-<li>Implement the Game Finished logic/sequence (remove game screen, show game finished screen, restart, show score)</li>
-</ul>
 
-<h2>Create Files & Initial Setup</h2>
 
-mkdir anna_lockdown_escape && cd anna_lockdown_escape
-mkdir src css
+<h2>MVP (DOM-CANVAS)</h2>
 
-touch index.html src/main.js src/game.js src/player.js src/treasure.js css/style.css
+The player can move around using Left Arrow Key and Right Arrow Key.
 
-code .
+The game is over when the player collects enough items to gain 1000 points. 
 
-<ul>
-<li>Create basic HTML skeleton</li>
 
-##### `index.html`
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Anna's Lockdown Escape</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <script src="src/main.js"></script>
-    <script src="src/game.js"></script>
-    <script src="src/player.js"></script>
-    <script src="src/treasure.js"></script>
-  </body>
-</html>
-```
+
+<h2>Data Structure</h2>
+
+1. index.html
+2. main.js
+3. game.js
+4. player.js
+5. treasure.js
+6. style.css
+
+
+
+<h3>1. index.html</h3>
+
+- basic HTML skeleton
+- link stylesheet and JS files
+
+
+
+<h3>2. main.js</h3>
+
+- create DOM
+- create SplashScreen / remove SplashScreen
+- createGameScreen / removeGameScreen
+- createGameOverScreen / removeGameOverScreen
+- Setting Game Start / End Game
+
+
+
+<h3>3. game.js</h3>
+
+class Game properties:
+
+- canvas
+- ctx
+- treasures
+- player
+- gameIsOver
+- gameScreen
+- score
+
+
+
+class Game methods:
+
+- start Game
+- start Loop
+- checking Collisions (catching treasures)
+- update Game Score
+- game Over
+
+
+
+<h3>4. player.js</h3>
+
+class Player properties:
+
+- canvas
+- ctx
+- Y postion
+- X position
+- width
+- height
+- image
+- direction
+
+
+
+class Player methods:
+
+- draw
+
+- set direction
+
+- screen collision
+
+- treasure collision
+
+  
+
+<h3>5. treasures.js</h3>
+
+class Treasure properties:
+
+- canvas
+- X position
+
+
+
+class Treasure methods:
+
+- draw
+- updatePosition
+- isInsideScreen
+
+
 
 
 
