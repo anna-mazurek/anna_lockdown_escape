@@ -24,7 +24,8 @@ code .
 <ul>
 <li>Create basic HTML skeleton</li>
 
-<code>
+##### `index.html`
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,4 +42,7 @@ code .
     <script src="src/treasure.js"></script>
   </body>
 </html>
-</code>
+```
+
+
+
