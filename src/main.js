@@ -35,7 +35,7 @@ function createSplashScreen() {
             <img class="emoji" src="/img/right-arrow.png" /> to move around
             the house
           </p>
-          <p>Catch them goodies to collect the points: 
+          <p>Catch them goodies to collect the points:
           <img class="emoji" src="/img/book.png" />
           <img class="emoji" src="/img/chocolate.png" />
           <img class="emoji" src="/img/wine.png" />

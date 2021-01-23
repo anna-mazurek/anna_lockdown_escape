@@ -74,9 +74,9 @@ class Player properties:
 - X position
 - width
 - height
-- image
+- size
 - direction
-
+- speed
 
 
 class Player methods:

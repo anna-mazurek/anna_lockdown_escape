@@ -38,14 +38,6 @@ h3 {
   padding-top: 10px;
 }
 
-/* .instructions {
-  margin-top: 2%;
-  padding: 1%;
-  height: 20%;
-  width: auto;
-  background-color:rgba(93, 104, 116, 0.88);
-} */
-
 .sign {
   padding-top: 5%;
   padding-bottom: 5%;
@@ -101,6 +93,12 @@ h3 {
 }
 
 .canvas-container canvas {
-  background-image: url("../img/background.jpg");
-  background-repeat: repeat;
+  background-image: url("../img/house.png");
+  background-repeat: no-repeat;
+}
+
+.score {
+  color: #09b7fc;
+  font-family: "Press Start 2P", cursive;
+  font-size: 20px;
 }
