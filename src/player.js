@@ -33,30 +33,32 @@ class Player {
     this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
   }
 
-  // didCollide(enemy) {
-  //   const playerLeft = this.x;
-  //   const playerRight = this.x + this.size;
-  //   const playerTop = this.y;
-  //   const playerBottom = this.y + this.size;
+  didCollide(treasure) {
+    const playerLeft = this.x;
+    const playerRight = this.x + this.size;
+    const playerTop = this.y;
+    const playerBottom = this.y + this.size;
 
-  //   const enemyLeft = enemy.x;
-  //   const enemyRight = enemy.x + enemy.size;
-  //   const enemyTop = enemy.y;
-  //   const enemyBottom = enemy.y + enemy.size;
+    const treasureLeft = treasure.x;
+    const treasureRight = treasure.x + treasure.size;
+    const treasureTop = treasure.y;
+    const treasureBottom = treasure.y + treasure.size;
 
-  //   // Check if the enemy sides intersect with any of the player's sides
-  //   const crossLeft = enemyLeft <= playerRight && enemyLeft >= playerLeft;
+    // Check if the treasure sides intersect with any of the player's sides
+    const crossLeft = treasureLeft <= playerRight && treasureLeft >= playerLeft;
 
-  //   const crossRight = enemyRight >= playerLeft && enemyRight <= playerRight;
+    const crossRight =
+      treasureRight >= playerLeft && treasureRight <= playerRight;
 
-  //   const crossBottom = enemyBottom >= playerTop && enemyBottom <= playerBottom;
+    const crossBottom =
+      treasureBottom >= playerTop && treasureBottom <= playerBottom;
 
-  //   const crossTop = enemyTop <= playerBottom && enemyTop >= playerTop;
+    const crossTop = treasureTop <= playerBottom && treasureTop >= playerTop;
 
-  //   if ((crossLeft || crossRight) && (crossTop || crossBottom)) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+    if ((crossLeft || crossRight) && (crossTop || crossBottom)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

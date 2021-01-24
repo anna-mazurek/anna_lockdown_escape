@@ -4,7 +4,7 @@ class Game {
   constructor() {
     this.canvas = null;
     this.ctx = null;
-    this.enemies = [];
+    this.treasures = [];
     this.player = null;
     this.gameIsOver = false;
     this.gameScreen = null;
@@ -13,12 +13,12 @@ class Game {
 
   // Create `ctx`, a `player` and start the Canvas loop
   start() {
+    console.log("game start");
     this.canvasContainer = document.querySelector(".canvas-container");
     this.canvas = this.gameScreen.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
 
-    // Save reference to the score and live elements
-    this.livesElement = this.gameScreen.querySelector(".lives .value");
+    // Save reference to the score
     this.scoreElement = this.gameScreen.querySelector(".score .value");
 
     // Set the canvas dimesions
@@ -29,9 +29,8 @@ class Game {
 
     this.player = new Player(this.canvas);
 
-    //Add keydown event listeners
-
-    const handleKeyDown = (event) => {
+    // Add keydown event listeners
+    this.handleKeyDown = (event) => {
       if (event.key === "ArrowRight") {
         this.player.setDirection("right");
       } else if (event.key === "ArrowLeft") {
@@ -39,84 +38,128 @@ class Game {
       }
     };
 
-    document.body.addEventListener("keydown", handleKeyDown);
+    // Add event listener for moving the player
+    window.addEventListener("keydown", this.handleKeyDown);
 
     this.startLoop();
   }
 
   startLoop() {
-    const loop = function () {
-      // 1. UPDATE THE STATE OF PLAYER AND ENEMIES
+    var loop = () => {
+      // 1. Create new treasures randomly
+      if (Math.random() > 0.99) {
+        var randomX1 = (this.canvas.width - 10) * Math.random();
+        var randomX3 = (this.canvas.width - 10) * Math.random();
+        var randomX5 = (this.canvas.width - 10) * Math.random();
 
-      // // 1. Create new enemies randomly
-      if (Math.random() > 0.95) {
-        var randomY = this.canvas.height * Math.random();
-        var newEnemy = new Enemy(this.canvas, randomY, 5);
-        this.enemies.push(newEnemy);
+        var newTreasure1 = new Treasure1(this.canvas, randomX1, 3);
+        var newTreasure3 = new Treasure3(this.canvas, randomX3, 3);
+        var newTreasure5 = new Treasure5(this.canvas, randomX5, 3);
+
+        this.treasures.push(newTreasure1, newTreasure3, newTreasure5);
+      } else if (Math.random() > 0.998) {
+        var randomX2 = (this.canvas.width - 50) * Math.random();
+        var randomX4 = (this.canvas.width - 50) * Math.random();
+        var newTreasure2 = new Treasure2(this.canvas, randomX2, 7);
+        var newTreasure4 = new Treasure4(this.canvas, randomX4, 7);
+
+        this.treasures.push(newTreasure2, newTreasure4);
       }
 
-      // // 2. Check if player had hit any enemy (check all enemies)
+      // 2. Check if player had hit any treasure (check all treasures)
       this.checkCollisions();
 
-      // // 3. Update the player and check if player is going off the screen
+      // 3. Update the player and check if player is going off the screen
       this.player.handleScreenCollision();
 
-      // // 4. Move the existing enemies
-      // // 5. Check if any enemy is going of the screen
-      this.enemies = this.enemies.filter(function (enemy) {
-        enemy.updatePosition();
-        return enemy.isInsideScreen();
+      // 4. Check if any treasure is going off the screen
+      this.treasures = this.treasures.filter((treasure) => {
+        treasure.updatePosition();
+        return treasure.isInsideScreen();
       });
 
-      // 2. CLEAR THE CANVAS
+      // CLEAR THE CANVAS
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-      // 3. UPDATE THE CANVAS
-      // // Draw the player
+      // UPDATE THE CANVAS
+      // Draw the player
       this.player.draw();
 
-      // // Draw the enemies
-      this.enemies.forEach(function (enemy) {
-        enemy.draw();
+      // Draw the treasures
+      this.treasures.forEach((treasure) => {
+        treasure.draw();
       });
 
-      // 4. TERMINATE LOOP IF THE GAME IS OVER
+      // TERMINATE LOOP IF THE GAME IS OVER
       if (!this.gameIsOver) {
         window.requestAnimationFrame(loop);
       }
 
-      // 5. UPDATE GAME STATUS
       this.updateGameStats();
-    }.bind(this);
+    };
 
-    window.requestAnimationFrame(loop);
+    loop();
   }
 
   checkCollisions() {
-    this.enemies.forEach(function (enemy) {
-      // We will implement didCollide() in the next step
-      if (this.player.didCollide(enemy)) {
-        this.player.removeLife();
-        console.log("lives", this.player.lives);
+    for (let i = 0; i < this.treasures.length; i++) {
+      switch (this.treasures[i].constructor.name) {
+        case "Treasure1":
+          if (this.player.didCollide(this.treasures[i])) {
+            this.treasures[i].y = 0 - this.treasures[i].size;
 
-        // Move the enemy off screen to the left
-        enemy.x = 0 - enemy.size;
+            this.score += 25;
+          }
 
-        if (this.player.lives === 0) {
-          this.gameOver();
-        }
+          break;
+
+        case "Treasure2":
+          if (this.player.didCollide(this.treasures[i])) {
+            this.treasures[i].y = 0 - this.treasures[i].size;
+            var message = alert(
+              "Sorry my Dear - you've earned yourself extra 2 days of lockdown. Minus 100 points."
+            );
+            this.score -= 100;
+          }
+
+          break;
+
+        case "Treasure3":
+          if (this.player.didCollide(this.treasures[i])) {
+            this.treasures[i].y = 0 - this.treasures[i].size;
+
+            this.score += 25;
+          }
+
+          break;
+
+        case "Treasure4":
+          if (this.player.didCollide(this.treasures[i])) {
+            this.treasures[i].y = 0 - this.treasures[i].size;
+            var message = alert(
+              "Good news: restaurants open today - double points for that!"
+            );
+            this.score += 50;
+          }
+
+          break;
+
+        case "Treasure5":
+          if (this.player.didCollide(this.treasures[i])) {
+            this.treasures[i].y = 0 - this.treasures[i].size;
+            this.score += 25;
+          }
+
+          break;
       }
-    }, this);
-    // We have to bind `this`
-    // as array method callbacks `this` value defaults to undefined.
+    }
+    if (this.score === 2000) {
+      this.gameOver();
+    }
   }
 
   gameOver() {
-    // flag `gameIsOver = true` stops the loop
-    this.gameIsOver = true;
-
-    // Call the `endGame` function from `main` to remove the Game screen
-    // and show the Game Over Screen
+    this.gameOver = true;
     endGame(this.score);
   }
 

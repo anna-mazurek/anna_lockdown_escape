@@ -39,12 +39,10 @@ function createSplashScreen() {
           <img class="emoji" src="/img/book.png" />
           <img class="emoji" src="/img/chocolate.png" />
           <img class="emoji" src="/img/wine.png" />
-          <img class="emoji" src="/img/laptop.png" />
           </p>
           <p>
-            Watch out! Some of these envelopes
-            <img class="emoji" src="/img/letter.png" /> does not contain good
-            news (like we got any recently)
+            Watch out! These envelopes
+            <img class="emoji" src="/img/letter.png" /> can contain either good or bad news
           </p>
         </div>
       <button class="start-button">Click to start</button>
@@ -58,7 +56,6 @@ function createSplashScreen() {
 }
 
 function removeSplashScreen() {
-  // remove() is the DOM method that removes the Node from the page
   splashScreen.remove();
 }
 
@@ -94,11 +91,11 @@ function createGameOverScreen(score) {
   <main>
     <h1>Game over</h1>
     <p>Your score: <span> ${score} </span></p>
-    <button>Restart</button>
+    <button class="restart">Restart</button>
   </main>
 `);
 
-  const button = gameOverScreen.querySelector("button");
+  const button = gameOverScreen.querySelector("button.restart");
   button.addEventListener("click", startGame);
 
   document.body.appendChild(gameOverScreen);
