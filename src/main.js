@@ -66,9 +66,13 @@ function createGameScreen() {
   <main class="game container">
       <header>
         <div class="score">
-          <span class="label">Score:</span>
+          <span class="label"><img src="../img/star.png" height="25"/> Score:</span>
           <span class="value"></span>
         </div>
+        <div class="time">
+        <span class="label"><img src="../img/timer.png" height="25"/> Time:</span>
+        <span class="value"></span>
+      </div>
       </header>
       <div class="canvas-container">
         <canvas></canvas>
@@ -89,9 +93,12 @@ function removeGameScreen() {
 function createGameOverScreen(score) {
   gameOverScreen = buildDom(`
   <main>
+    <div class="game-over">
     <h1>Game over</h1>
     <p>Your score: <span> ${score} </span></p>
-    <button class="restart">Restart</button>
+    <img class="hearts" src="../img/hearts.png"/>
+    <button class="restart">RESTART</button>
+    </div>
   </main>
 `);
 

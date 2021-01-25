@@ -34,9 +34,9 @@ class Treasure1 extends Treasures {
 class Treasure2 extends Treasures {
   constructor(canvas, x, speed) {
     super(canvas, x, speed);
-    this.size = 35;
-    this.width = 35;
-    this.height = 35;
+    this.size = 45;
+    this.width = 45;
+    this.height = 45;
     this.y = 0 + this.size;
   }
   draw() {
@@ -49,9 +49,9 @@ class Treasure2 extends Treasures {
 class Treasure3 extends Treasures {
   constructor(canvas, x, speed) {
     super(canvas, x, speed);
-    this.size = 55;
-    this.width = 35;
-    this.height = 55;
+    this.size = 65;
+    this.width = 45;
+    this.height = 65;
     this.y = 0 + this.size;
   }
   draw() {
@@ -64,9 +64,9 @@ class Treasure3 extends Treasures {
 class Treasure4 extends Treasures {
   constructor(canvas, x, speed) {
     super(canvas, x, speed);
-    this.size = 35;
-    this.width = 35;
-    this.height = 35;
+    this.size = 45;
+    this.width = 45;
+    this.height = 45;
     this.y = 0 + this.size;
   }
   draw() {
@@ -79,9 +79,9 @@ class Treasure4 extends Treasures {
 class Treasure5 extends Treasures {
   constructor(canvas, x, speed) {
     super(canvas, x, speed);
-    this.size = 35;
-    this.width = 35;
-    this.height = 35;
+    this.size = 45;
+    this.width = 45;
+    this.height = 45;
     this.y = 0 + this.size;
   }
   draw() {

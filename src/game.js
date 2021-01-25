@@ -38,30 +38,61 @@ class Game {
       }
     };
 
+    //timer
+
+    var counter = 0;
+
+    const countdown = (minutes) => {
+      var seconds = 60;
+      var mins = minutes;
+      const tick = () => {
+        //This script expects an element with an ID = "counter". You can change that to what ever you want.
+        var counter = this.gameScreen.querySelector(".time .value");
+        console.log(counter);
+        var current_minutes = mins - 1;
+        seconds--;
+        counter.innerHTML =
+          current_minutes.toString() +
+          ":" +
+          (seconds < 10 ? "0" : "") +
+          String(seconds);
+        if (seconds > 0) {
+          setTimeout(tick, 1000);
+        } else {
+          if (mins > 1) {
+            countdown(mins - 1);
+          }
+        }
+      };
+      tick();
+    };
+    // timer
+
     // Add event listener for moving the player
     window.addEventListener("keydown", this.handleKeyDown);
 
     this.startLoop();
+    countdown(1);
   }
 
   startLoop() {
     var loop = () => {
       // 1. Create new treasures randomly
-      if (Math.random() > 0.99) {
+      if (Math.random() > 0.98) {
         var randomX1 = (this.canvas.width - 10) * Math.random();
         var randomX3 = (this.canvas.width - 10) * Math.random();
         var randomX5 = (this.canvas.width - 10) * Math.random();
 
-        var newTreasure1 = new Treasure1(this.canvas, randomX1, 3);
-        var newTreasure3 = new Treasure3(this.canvas, randomX3, 3);
-        var newTreasure5 = new Treasure5(this.canvas, randomX5, 3);
+        var newTreasure1 = new Treasure1(this.canvas, randomX1, 4);
+        var newTreasure3 = new Treasure3(this.canvas, randomX3, 4);
+        var newTreasure5 = new Treasure5(this.canvas, randomX5, 4);
 
         this.treasures.push(newTreasure1, newTreasure3, newTreasure5);
-      } else if (Math.random() > 0.998) {
-        var randomX2 = (this.canvas.width - 50) * Math.random();
-        var randomX4 = (this.canvas.width - 50) * Math.random();
-        var newTreasure2 = new Treasure2(this.canvas, randomX2, 7);
-        var newTreasure4 = new Treasure4(this.canvas, randomX4, 7);
+      } else if (Math.random() > 0.992) {
+        var randomX2 = (this.canvas.width - 10) * Math.random();
+        var randomX4 = (this.canvas.width - 40) * Math.random();
+        var newTreasure2 = new Treasure2(this.canvas, randomX2, 8);
+        var newTreasure4 = new Treasure4(this.canvas, randomX4, 8);
 
         this.treasures.push(newTreasure2, newTreasure4);
       }
@@ -117,7 +148,7 @@ class Game {
           if (this.player.didCollide(this.treasures[i])) {
             this.treasures[i].y = 0 - this.treasures[i].size;
             var message = alert(
-              "Sorry my Dear - you've earned yourself extra 2 days of lockdown. Minus 100 points."
+              "Sorry my Dear - you've earned yourself extra week of lockdown: -100 points."
             );
             this.score -= 100;
           }
@@ -137,9 +168,9 @@ class Game {
           if (this.player.didCollide(this.treasures[i])) {
             this.treasures[i].y = 0 - this.treasures[i].size;
             var message = alert(
-              "Good news: restaurants open today - double points for that!"
+              "Good news: restaurants open today: +100 points for that!"
             );
-            this.score += 50;
+            this.score += 100;
           }
 
           break;
