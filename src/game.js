@@ -46,9 +46,7 @@ class Game {
       var seconds = 60;
       var mins = minutes;
       const tick = () => {
-        //This script expects an element with an ID = "counter". You can change that to what ever you want.
-        var counter = this.gameScreen.querySelector(".time .value");
-        console.log(counter);
+        var counter = this.gameScreen.querySelector("#time");
         var current_minutes = mins - 1;
         seconds--;
         counter.innerHTML =
@@ -63,6 +61,11 @@ class Game {
             countdown(mins - 1);
           }
         }
+        console.log(this.gameScreen.querySelector("#time").innerHTML);
+        if (this.gameScreen.querySelector("#time").innerHTML == "0:00") {
+          //console.log('pasa la validacion')
+          this.gameOver();
+        }
       };
       tick();
     };
@@ -73,6 +76,10 @@ class Game {
 
     this.startLoop();
     countdown(1);
+    console.log(
+      this.gameScreen.querySelector("#time").innerHTML,
+      "before validation"
+    );
   }
 
   startLoop() {

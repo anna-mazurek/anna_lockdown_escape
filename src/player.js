@@ -29,7 +29,7 @@ class Player {
 
   draw() {
     this.img = new Image();
-    this.img.src = "../img/dunnowhy.png";
+    this.img.src = "img/dunnowhy.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
   }
 

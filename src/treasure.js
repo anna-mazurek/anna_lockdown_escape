@@ -26,7 +26,7 @@ class Treasure1 extends Treasures {
   }
   draw() {
     this.img = new Image();
-    this.img.src = "../img/chocolate.png";
+    this.img.src = "img/chocolate.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
@@ -41,7 +41,7 @@ class Treasure2 extends Treasures {
   }
   draw() {
     this.img = new Image();
-    this.img.src = "../img/letter.png";
+    this.img.src = "img/letter.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
@@ -56,7 +56,7 @@ class Treasure3 extends Treasures {
   }
   draw() {
     this.img = new Image();
-    this.img.src = "../img/wine.png";
+    this.img.src = "img/wine.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
@@ -71,7 +71,7 @@ class Treasure4 extends Treasures {
   }
   draw() {
     this.img = new Image();
-    this.img.src = "../img/letter.png";
+    this.img.src = "img/letter.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
@@ -86,7 +86,7 @@ class Treasure5 extends Treasures {
   }
   draw() {
     this.img = new Image();
-    this.img.src = "../img/book.png";
+    this.img.src = "img/book.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }

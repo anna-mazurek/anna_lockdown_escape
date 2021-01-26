@@ -24,25 +24,25 @@ function createSplashScreen() {
       </div>
       <h1>Welcome to Anna's lockdown escape mission!</h1>
       <h2>
-        The goal is to collect as many goodies as possible to help get through
+        The goal is to collect 2000 points in 1 minute to get through
         this madness.
       </h2>
-      <img class="anna-hand" src="/img/thereyougo.png" />
+      <img class="anna-hand" src="img/thereyougo.png" />
       <div class="box">
           <h3>Instructions</h3>
           <p>
-            Use arrow keys <img class="emoji" src="/img/left-arrow.png" />
-            <img class="emoji" src="/img/right-arrow.png" /> to move around
+            Use arrow keys <img class="emoji" src="img/left-arrow.png" />
+            <img class="emoji" src="img/right-arrow.png" /> to move around
             the house
           </p>
           <p>Catch them goodies to collect the points:
-          <img class="emoji" src="/img/book.png" />
-          <img class="emoji" src="/img/chocolate.png" />
-          <img class="emoji" src="/img/wine.png" />
+          <img class="emoji" src="img/book.png" />
+          <img class="emoji" src="img/chocolate.png" />
+          <img class="emoji" src="img/wine.png" />
           </p>
           <p>
             Watch out! These envelopes
-            <img class="emoji" src="/img/letter.png" /> can contain either good or bad news
+            <img class="emoji" src="img/letter.png" /> can contain either good or bad news
           </p>
         </div>
       <button class="start-button">Click to start</button>
@@ -66,12 +66,12 @@ function createGameScreen() {
   <main class="game container">
       <header>
         <div class="score">
-          <span class="label"><img src="../img/star.png" height="25"/> Score:</span>
+          <span class="label"><img src="img/star.png" height="25"/> Score:</span>
           <span class="value"></span>
         </div>
         <div class="time">
-        <span class="label"><img src="../img/timer.png" height="25"/> Time:</span>
-        <span class="value"></span>
+        <span class="label"><img src="img/timer.png" height="25"/> Time:</span>
+        <span class="value" id="time"></span>
       </div>
       </header>
       <div class="canvas-container">
@@ -96,7 +96,7 @@ function createGameOverScreen(score) {
     <div class="game-over">
     <h1>Game over</h1>
     <p>Your score: <span> ${score} </span></p>
-    <img class="hearts" src="../img/hearts.png"/>
+    <img class="hearts" src="img/hearts.png"/>
     <button class="restart">RESTART</button>
     </div>
   </main>
