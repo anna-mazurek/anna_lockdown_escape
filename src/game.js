@@ -9,6 +9,9 @@ class Game {
     this.gameIsOver = false;
     this.gameScreen = null;
     this.score = 0;
+    this.soundTreasure = new Audio("audio/catch.wav");
+    this.soundBonus = new Audio("audio/bonus2.wav");
+    this.soundMinus = new Audio("audio/blast.wav");
   }
 
   // Create `ctx`, a `player` and start the Canvas loop
@@ -61,9 +64,10 @@ class Game {
             countdown(mins - 1);
           }
         }
-        console.log(this.gameScreen.querySelector("#time").innerHTML);
+
+        console.log(this.score, "checking score");
+
         if (this.gameScreen.querySelector("#time").innerHTML == "0:00") {
-          //console.log('pasa la validacion')
           this.gameOver();
         }
       };
@@ -95,7 +99,7 @@ class Game {
         var newTreasure5 = new Treasure5(this.canvas, randomX5, 4);
 
         this.treasures.push(newTreasure1, newTreasure3, newTreasure5);
-      } else if (Math.random() > 0.992) {
+      } else if (Math.random() > 0.994) {
         var randomX2 = (this.canvas.width - 10) * Math.random();
         var randomX4 = (this.canvas.width - 40) * Math.random();
         var newTreasure2 = new Treasure2(this.canvas, randomX2, 8);
@@ -144,6 +148,8 @@ class Game {
       switch (this.treasures[i].constructor.name) {
         case "Treasure1":
           if (this.player.didCollide(this.treasures[i])) {
+            this.soundTreasure.currentTime = 0;
+            this.soundTreasure.play();
             this.treasures[i].y = 0 - this.treasures[i].size;
 
             this.score += 25;
@@ -153,6 +159,8 @@ class Game {
 
         case "Treasure2":
           if (this.player.didCollide(this.treasures[i])) {
+            this.soundMinus.currentTime = 0;
+            this.soundMinus.play();
             this.treasures[i].y = 0 - this.treasures[i].size;
             var message = alert(
               "Sorry my Dear - you've earned yourself extra week of lockdown: -100 points."
@@ -164,6 +172,8 @@ class Game {
 
         case "Treasure3":
           if (this.player.didCollide(this.treasures[i])) {
+            this.soundTreasure.currentTime = 0;
+            this.soundTreasure.play();
             this.treasures[i].y = 0 - this.treasures[i].size;
 
             this.score += 25;
@@ -173,6 +183,8 @@ class Game {
 
         case "Treasure4":
           if (this.player.didCollide(this.treasures[i])) {
+            this.soundBonus.currentTime = 0;
+            this.soundBonus.play();
             this.treasures[i].y = 0 - this.treasures[i].size;
             var message = alert(
               "Good news: restaurants open today: +100 points for that!"
@@ -184,6 +196,8 @@ class Game {
 
         case "Treasure5":
           if (this.player.didCollide(this.treasures[i])) {
+            this.soundTreasure.currentTime = 0;
+            this.soundTreasure.play();
             this.treasures[i].y = 0 - this.treasures[i].size;
             this.score += 25;
           }
@@ -191,7 +205,11 @@ class Game {
           break;
       }
     }
-    if (this.score === 2000) {
+
+    if (
+      this.score >= 2000 ||
+      this.gameScreen.querySelector("#time").innerHTML == "0:00"
+    ) {
       this.gameOver();
     }
   }

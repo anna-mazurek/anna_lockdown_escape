@@ -4,6 +4,7 @@ let game; // instance of the Game
 let splashScreen; // Start Game Screen
 let gameScreen;
 let gameOverScreen;
+let gameWonScreen;
 
 // Creates DOM elements from a string representation
 // buildDom
@@ -91,21 +92,39 @@ function removeGameScreen() {
 // -- game over screen
 
 function createGameOverScreen(score) {
-  gameOverScreen = buildDom(`
+  if (score >= 2000) {
+    gameOverScreen = buildDom(`
   <main>
     <div class="game-over">
-    <h1>Game over</h1>
-    <p>Your score: <span> ${score} </span></p>
+    <h1 class="gameoverscreen">Game Won - congrats!</h1>
+    <p class="scores">Your score: <span> ${score} </span></p>
     <img class="hearts" src="img/hearts.png"/>
     <button class="restart">RESTART</button>
     </div>
   </main>
 `);
 
-  const button = gameOverScreen.querySelector("button.restart");
-  button.addEventListener("click", startGame);
+    const button = gameOverScreen.querySelector("button.restart");
+    button.addEventListener("click", startGame);
 
-  document.body.appendChild(gameOverScreen);
+    document.body.appendChild(gameOverScreen);
+  } else {
+    gameOverScreen = buildDom(`
+  <main>
+    <div class="game-over">
+    <h1 class="gameoverscreen">Game Over - you lost</h1>
+    <p class="scores">Your score: <span> ${score} </span></p>
+    <img class="hearts" src="img/cry.png"/>
+    <button class="restart">RESTART</button>
+    </div>
+  </main>
+`);
+
+    const button = gameOverScreen.querySelector("button.restart");
+    button.addEventListener("click", startGame);
+
+    document.body.appendChild(gameOverScreen);
+  }
 }
 
 function removeGameOverScreen() {
