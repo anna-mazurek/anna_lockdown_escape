@@ -14,7 +14,6 @@ class Player {
   setDirection(direction) {
     if (direction === "left") this.direction = -1;
     else if (direction === "right") this.direction = 1;
-    console.log(direction);
   }
 
   handleScreenCollision() {
