@@ -65,8 +65,6 @@ class Game {
           }
         }
 
-        console.log(this.score, "checking score");
-
         if (this.gameScreen.querySelector("#time").innerHTML == "0:00") {
           this.gameOver();
         }

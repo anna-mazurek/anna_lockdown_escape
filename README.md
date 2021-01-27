@@ -16,18 +16,20 @@ The game is over when the player collects enough items to gain 1000 points.
 4. player.js
 5. treasure.js
 6. style.css
+7. img
+8. audio
 
 <h3>1. index.html</h3>
 
 - basic HTML skeleton
-- link stylesheet and JS files
+- links stylesheet and JS files
 
 <h3>2. main.js</h3>
 
 - create DOM
 - create SplashScreen / remove SplashScreen
 - createGameScreen / removeGameScreen
-- createGameOverScreen / removeGameOverScreen
+- createGameOverScreen / removeGameOverScreen - two different scenarios
 - Setting Game Start / End Game
 
 <h3>3. game.js</h3>
@@ -41,14 +43,17 @@ class Game properties:
 - gameIsOver
 - gameScreen
 - score
+- soundTreasure
+- soundBonus
+- soundMinus
 
 class Game methods:
 
 - start Game
 - start Loop
 - checking Collisions (catching treasures)
+- Game Over
 - update Game Score
-- game Over
 
 <h3>4. player.js</h3>
 
@@ -56,19 +61,19 @@ class Player properties:
 
 - canvas
 - ctx
-- Y postion
-- X position
 - size
+- x position
+- y position
 - direction
 - speed
 
 class Player methods:
 
-- draw
-
 - set direction
 
 - screen collision
+
+- draw Player
 
 - treasure collision
 
@@ -80,6 +85,9 @@ class Treasure properties:
 - ctx
 - speed
 - X position
+- size
+- width
+- height
 
 class Treasure methods:
 
