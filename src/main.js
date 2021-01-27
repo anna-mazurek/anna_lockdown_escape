@@ -25,7 +25,7 @@ function createSplashScreen() {
       </div>
       <h1>Welcome to Anna's lockdown escape mission!</h1>
       <h2>
-        The goal is to collect 2000 points in 1 minute to get through
+        The goal is to collect 2000 points in 2 minutes to get through
         this madness.
       </h2>
       <img class="anna-hand" src="img/thereyougo.png" />

@@ -77,7 +77,7 @@ class Game {
     window.addEventListener("keydown", this.handleKeyDown);
 
     this.startLoop();
-    countdown(1);
+    countdown(2);
     console.log(
       this.gameScreen.querySelector("#time").innerHTML,
       "before validation"
@@ -87,7 +87,7 @@ class Game {
   startLoop() {
     var loop = () => {
       // 1. Create new treasures randomly
-      if (Math.random() > 0.98) {
+      if (Math.random() > 0.993) {
         var randomX1 = (this.canvas.width - 10) * Math.random();
         var randomX3 = (this.canvas.width - 10) * Math.random();
         var randomX5 = (this.canvas.width - 10) * Math.random();
@@ -97,7 +97,7 @@ class Game {
         var newTreasure5 = new Treasure5(this.canvas, randomX5, 4);
 
         this.treasures.push(newTreasure1, newTreasure3, newTreasure5);
-      } else if (Math.random() > 0.994) {
+      } else if (Math.random() > 0.999) {
         var randomX2 = (this.canvas.width - 10) * Math.random();
         var randomX4 = (this.canvas.width - 40) * Math.random();
         var newTreasure2 = new Treasure2(this.canvas, randomX2, 8);
