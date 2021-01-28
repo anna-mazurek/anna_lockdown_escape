@@ -3,13 +3,17 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+body {
+  background-color: rgb(5, 5, 5);
+}
+
 .splash {
   margin: 0 auto;
-  width: 75%;
+  width: 70%;
   height: 750px;
   font-family: "Josefin Slab", serif;
   font-size: 16px;
-  color: rgb(5, 41, 80);
+  color: rgb(199, 206, 212);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,14 +79,19 @@ p {
 
 .box {
   position: relative;
-  background-color: white;
+  background-color: rgba(34, 44, 56, 0.438);
   flex-direction: column;
   box-sizing: border-box;
   padding: 15px;
   font-family: "Josefin Slab", serif;
+  text-align: center;
   border: 10px;
   border-style: double;
-  border-color: rgb(119, 176, 202);
+  border-color: #ffe3e2;
+}
+
+.instr {
+  font-size: 23px;
 }
 
 .start-button {
@@ -107,13 +116,13 @@ p {
 }
 
 .score {
-  color: #000000;
+  color: #ffffff;
   font-family: "Press Start 2P", cursive;
   font-size: 20px;
 }
 
 .time {
-  color: #000000;
+  color: #ffffff;
   font-family: "Press Start 2P", cursive;
   font-size: 20px;
 }
@@ -123,10 +132,12 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 400px;
-  width: 60%;
+  height: 100vh;
+  width: 100%;
   font-family: "Press Start 2P", cursive;
+  color: #ffffff;
   padding-top: 6%;
+  background-image: url("../img/glitch.jpg");
 }
 
 .hearts {

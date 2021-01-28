@@ -30,7 +30,7 @@ function createSplashScreen() {
       </h2>
       <img class="anna-hand" src="img/thereyougo.png" />
       <div class="box">
-          <h3>Instructions</h3>
+          <h3 class="instr">Instructions</h3>
           <p>
             Use arrow keys <img class="emoji" src="img/left-arrow.png" />
             <img class="emoji" src="img/right-arrow.png" /> to move around
@@ -42,8 +42,9 @@ function createSplashScreen() {
           <img class="emoji" src="img/wine.png" />
           </p>
           <p>
-            Watch out! These envelopes
-            <img class="emoji" src="img/letter.png" /> can contain either good or bad news
+          Watch out! These envelopes
+            <img class="emoji" src="img/letter.png" />
+          can contain either good or bad news
           </p>
         </div>
       <button class="start-button">Click to start</button>

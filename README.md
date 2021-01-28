@@ -85,6 +85,7 @@ class Treasure properties:
 - ctx
 - speed
 - X position
+- Y position
 - size
 - width
 - height
