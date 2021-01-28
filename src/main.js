@@ -115,7 +115,7 @@ function createGameOverScreen(score) {
     <div class="game-over">
     <h1 class="gameoverscreen">Game Over - you lost</h1>
     <p class="scores">Your score: <span> ${score} </span></p>
-    <img class="hearts" src="img/cry.png"/>
+    <img class="hearts" src="img/crying.png"/>
     <button class="restart">RESTART</button>
     </div>
   </main>
